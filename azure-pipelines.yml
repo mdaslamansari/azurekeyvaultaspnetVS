@@ -9,12 +9,22 @@ trigger:
 pool:
   vmImage: 'windows-latest'
 
+
+
+
 variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Debug'
 
 steps:
+- task: AzureKeyVault@1
+  inputs:
+    azureSubscription: 'Visual Studio Enterprise(8a54e3f5-a523-4ab4-bae0-2b5d7dfbd859)'
+    KeyVaultName: 'AslTestKeyVault'
+    SecretsFilter: '*'
+
+
 - task: NuGetToolInstaller@0
     
 - task: NuGetCommand@2
