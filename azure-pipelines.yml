@@ -32,7 +32,7 @@ steps:
 
 - task: ExtractFiles@1
   inputs:
-    archiveFilePatterns: '*.zip'
+    archiveFilePatterns: '$(Build.ArtifactStagingDirectory)\*.zip'
     destinationFolder: '$(Build.ArtifactStagingDirectory)\BinSkim'
     cleanDestinationFolder: true
 
