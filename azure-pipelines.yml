@@ -29,7 +29,7 @@ steps:
     targetType: 'inline'
     script: '# Write your powershell commands here.
       
-      Write-Host $mode
+      Write-Host $(mode)
       
       # Use the environment variables input below to pass secret variables to this script.'
 
