@@ -48,8 +48,33 @@ steps:
 
 - task: SdtReport@1
   inputs:
-    AllTools: true
-    BinSkimBreakOn: 'WarningAbove'
-    RoslynAnalyzersBreakOn: 'WarningAbove'
-    TSLintBreakOn: 'WarningAbove'
+    AllTools: false
+    BinSkim: false
+    CredScan: true
+    MSRD: false
+    RoslynAnalyzers: false
+    TSLint: false
     ToolLogsNotFoundAction: 'Standard'
+
+- task: PostAnalysis@1
+  inputs:
+    AllTools: false
+    BinSkim: false
+    CredScan: true
+    RoslynAnalyzers: false
+    TSLint: false
+    ToolLogsNotFoundAction: 'Standard'
+
+- task: PublishSecurityAnalysisLogs@2
+  inputs:
+    ArtifactName: 'CodeAnalysisLogs'
+    ArtifactType: 'Container'
+    AllTools: false
+    AntiMalware: false
+    BinSkim: false
+    CredScan: true
+    MSRD: false
+    RoslynAnalyzers: false
+    TSLint: false
+    ToolLogsNotFoundAction: 'Standard'
+
