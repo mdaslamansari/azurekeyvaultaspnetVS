@@ -38,5 +38,6 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
-    - task: CredScan@2
-      inputs:
+- task: CredScan@2
+  inputs:
+    verboseOutput: true
