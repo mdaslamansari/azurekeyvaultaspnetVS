@@ -41,8 +41,8 @@ steps:
     InputType: 'Basic'
     Function: 'analyze'
     AnalyzeTarget: '$(Build.ArtifactStagingDirectory)\BinSkim\*.dll;$(Build.ArtifactStagingDirectory)\BinSkim\*.exe'
-    AnalyzeVerbose: true
     AnalyzeRecurse: true
+    AnalyzeVerbose: true
     
 - task: VSTest@2
   inputs:
