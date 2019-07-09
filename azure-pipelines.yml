@@ -18,20 +18,6 @@ variables:
   buildConfiguration: 'Debug'
 
 steps:
-- task: AzureKeyVault@1
-  inputs:
-    azureSubscription: 'Visual Studio Enterprise(8a54e3f5-a523-4ab4-bae0-2b5d7dfbd859)'
-    KeyVaultName: 'AslTestKeyVault'
-    SecretsFilter: '*'
-
-- task: PowerShell@2
-  inputs:
-    targetType: 'inline'
-    script: '# Write your powershell commands here.
-      
-      Write-Host $(mode)
-      
-      # Use the environment variables input below to pass secret variables to this script.'
 
 - task: NuGetToolInstaller@0
     
