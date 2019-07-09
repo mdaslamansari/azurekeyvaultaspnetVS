@@ -52,19 +52,6 @@ steps:
     destinationFolder: '$(Build.ArtifactStagingDirectory)\BinSkim'
     cleanDestinationFolder: true
 
-- task: BinSkim@3
-  inputs:
-    InputType: 'Basic'
-    Function: 'analyze'
-    AnalyzeTarget: '$(Build.ArtifactStagingDirectory)\BinSkim\*.dll;$(Build.ArtifactStagingDirectory)\BinSkim\*.exe'
-    AnalyzeRecurse: true
-    AnalyzeVerbose: true
-    
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
