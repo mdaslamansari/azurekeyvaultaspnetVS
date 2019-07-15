@@ -49,10 +49,6 @@ steps:
     suppressAsError: true
     verboseOutput: true
 
-- task: RoslynAnalyzers@2
-  inputs:
-    userProvideBuildInfo: 'auto'
-
 - task: SdtReport@1
   inputs:
     AllTools: false
@@ -65,12 +61,7 @@ steps:
 
 - task: PostAnalysis@1
   inputs:
-    AllTools: false
-    BinSkim: false
     CredScan: true
-    RoslynAnalyzers: false
-    TSLint: false
-    ToolLogsNotFoundAction: 'Standard'
 
 - task: PublishSecurityAnalysisLogs@2
   inputs:
