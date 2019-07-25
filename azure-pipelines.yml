@@ -3,7 +3,7 @@
 # Add steps that publish symbols, save build artifacts, deploy, and more:
 <<<<<<< HEAD
 ## &&&&https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
-=====
+=
 #https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
 >>>>>>> 6cc077f05d8482dc21d65e085f49b1934c554fd5
 
