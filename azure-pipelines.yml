@@ -23,60 +23,10 @@ variables:
 
 steps:
 
-- task: NuGetToolInstaller@0
-    
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
-
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
-    platform: '$(buildPlatform)'
-    configuration: '$(mode)'
-
-- task: ExtractFiles@1
-  inputs:
-    archiveFilePatterns: '$(Build.ArtifactStagingDirectory)\*.zip'
-    destinationFolder: '$(Build.ArtifactStagingDirectory)\BinSkim'
-    cleanDestinationFolder: true
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
-
 - task: CredScan@2
   inputs:
     suppressAsError: true
     verboseOutput: true
 
-- task: SdtReport@1
-  inputs:
-    AllTools: false
-    BinSkim: false
-    CredScan: true
-    MSRD: false
-    RoslynAnalyzers: false
-    TSLint: false
-    ToolLogsNotFoundAction: 'Standard'
 
-- task: PostAnalysis@1
-  inputs:
-    CredScan: true
-
-- task: PublishSecurityAnalysisLogs@2
-  inputs:
-    ArtifactName: 'CodeAnalysisLogs'
-    ArtifactType: 'Container'
-    AllTools: false
-    AntiMalware: false
-    BinSkim: false
-    CredScan: true
-    MSRD: false
-    RoslynAnalyzers: false
-    TSLint: false
-    ToolLogsNotFoundAction: 'Standard'
 
